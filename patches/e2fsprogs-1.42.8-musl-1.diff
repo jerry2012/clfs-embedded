@@ -1,0 +1,24 @@
+Submitted By: Andrew Bradford <andrew@bradfordembedded.com>
+Date: 2013-10-24
+Initial Package Version: 1.42.8
+Origin: CLFS specific
+Upstream Status: None
+Description: Patch to e2fsprogs to support musl libc.
+
+diff -Naur e2fsprogs-1.42.8.orig/lib/ext2fs/unix_io.c e2fsprogs-1.42.8/lib/ext2fs/unix_io.c
+--- e2fsprogs-1.42.8.orig/lib/ext2fs/unix_io.c	2013-10-24 15:50:44.234297410 -0400
++++ e2fsprogs-1.42.8/lib/ext2fs/unix_io.c	2013-10-24 16:29:06.436142156 -0400
+@@ -931,10 +931,10 @@
+ 
+ 	if (channel->flags & CHANNEL_FLAGS_BLOCK_DEVICE) {
+ #ifdef BLKDISCARD
+-		__uint64_t range[2];
++		uint64_t range[2];
+ 
+-		range[0] = (__uint64_t)(block) * channel->block_size;
+-		range[1] = (__uint64_t)(count) * channel->block_size;
++		range[0] = (uint64_t)(block) * channel->block_size;
++		range[1] = (uint64_t)(count) * channel->block_size;
+ 
+ 		ret = ioctl(data->dev, BLKDISCARD, &range);
+ #else
