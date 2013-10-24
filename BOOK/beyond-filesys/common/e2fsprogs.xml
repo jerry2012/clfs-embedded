@@ -36,9 +36,12 @@ cd build</userinput></screen>
 
     <para os="c">Prepare E2fsprogs for compilation:</para>
 
-<screen os="d"><userinput>CC="${CC} -Os" ../configure --prefix=/usr \
-    --with-root-prefix="" --host=${CLFS_TARGET} --disable-tls \
-    --disable-debugfs --disable-e2initrd-helper --disable-nls</userinput></screen>
+    <screen os="d"><userinput>../configure CC="${CC} -Os" \
+    --prefix=/usr \
+    --with-root-prefix="" \
+    --host=${CLFS_TARGET} \
+    --disable-nls \
+    --enable-elf-shlibs</userinput></screen>
 
     <variablelist os="e">
       <title>The meaning of the configure options:</title>
@@ -47,45 +50,22 @@ cd build</userinput></screen>
         <term><parameter>--with-root-prefix=""</parameter></term>
         <listitem>
           <para>Certain programs (such as the <command>e2fsck</command>
-          program) are considered essential programs. When, for example,
-          <filename class="directory">/usr</filename> is not mounted,
-          these programs still need to be available. They belong in
-          directories like <filename class="directory">/lib</filename> and
-          <filename class="directory">/sbin</filename>. If this option is
-          not passed to E2fsprogs' configure, the programs are installed into
-          the <filename class="directory">/usr</filename> directory.</para>
+          program) are considered essential programs and should be installed to
+          <filename class="directory">/sbin</filename>.</para>
        </listitem>
      </varlistentry>
 
       <varlistentry os="e2">
-        <term><parameter>--disable-tls</parameter></term>
+        <term><parameter>--disable-nls</parameter></term>
         <listitem>
-          <para>Disable thread local support</para>
+          <para>Disable native language support.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry os="e3">
-        <term><parameter>--disable-debugfs</parameter></term>
+        <term><parameter>--enable-elf-shlibs</parameter></term>
         <listitem>
-          <para>Disable building of the debugfs program.
-          The debugfs program relies upon utime.h which is not
-          available in the embedded system.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry os="e4">
-        <term><parameter>--disable-e2initrd-helper</parameter></term>
-        <listitem>
-          <para>Disable building of the e2initrd-helper.
-          The e2initrd-helper program relies upon utime.h which is not
-          available in the embedded system.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry os="e5">
-        <term><parameter>--disable-nls</parameter></term>
-        <listitem>
-          <para>Disable native language support.</para>
+          <para>Enable building, and with, shared libs.</para>
         </listitem>
       </varlistentry>
 
@@ -98,10 +78,6 @@ cd build</userinput></screen>
     <para os="h">Install the binaries, documentation, and shared libraries:</para>
 
 <screen os="i"><userinput>make DESTDIR=${CLFS}/targetfs install</userinput></screen>
-
-    <para os="j">Install the static libraries and headers:</para>
-
-<screen os="k"><userinput>make DESTDIR=${CLFS}/targetfs install-libs</userinput></screen>
 
   </sect2>
 
@@ -117,8 +93,8 @@ cd build</userinput></screen>
         e2fsck, e2image, e2label, filefrag, findfs, fsck, fsck.ext2, fsck.ext3,
         fsck.ext4, logsave, lsattr, mk_cmds, mke2fs, mkfs.ext2, mkfs.ext3, 
         mkfs.ext4, mklost+found, resize2fs, tune2fs, and uuidgen.</seg>
-        <seg>libblkid.[a,so], libcom_err.[a,so], libe2p.[a,so],
-        libext2fs.[a,so], libss.[a,so], and libuuid.[a,so]</seg>
+        <seg>libblkid.so, libcom_err.so, libe2p.so,
+        libext2fs.so, libss.so, and libuuid.so</seg>
       </seglistitem>
     </segmentedlist>
 
