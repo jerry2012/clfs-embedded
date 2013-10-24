@@ -96,8 +96,8 @@
 
 <!-- Beyond CLFS file system packages -->
 
-<!ENTITY e2fsprogs-version "1.42.7">
-<!ENTITY e2fsprogs-size "5840 KB">
+<!ENTITY e2fsprogs-version "1.42.8">
+<!ENTITY e2fsprogs-size "5849 KB">
 <!ENTITY e2fsprogs-url "&sourceforge;e2fsprogs/e2fsprogs-&e2fsprogs-version;.tar.gz">
-<!ENTITY e2fsprogs-md5 "a1ec22ef003688dae9f76c74881b22b9">
+<!ENTITY e2fsprogs-md5 "8ef664b6eb698aa6b733df59b17b9ed4">
 <!ENTITY e2fsprogs-home "http://e2fsprogs.sourceforge.net">
