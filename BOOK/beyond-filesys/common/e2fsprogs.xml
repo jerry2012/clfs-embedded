@@ -17,7 +17,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The E2fsprogs package contains the utilities for handling the
+    <para>The E2fsprogs package contains the utilities and libraries for handling the
     <systemitem class="filesystem">ext2</systemitem> file system. It also
     supports the <systemitem class="filesystem">ext3</systemitem> and
     <systemitem class="filesystem">ext4</systemitem> journaling
@@ -79,9 +79,18 @@ cd build</userinput></screen>
 
 <screen os="g"><userinput>make</userinput></screen>
 
-    <para os="h">Install the binaries, documentation, and shared libraries:</para>
+    <para os="h">Install the libraries into the sysroot:</para>
 
-<screen os="i"><userinput>make DESTDIR=${CLFS}/targetfs install</userinput></screen>
+<screen os="i"><userinput>make DESTDIR=${CLFS}/cross-tools/${CLFS_TARGET} install-libs-recursive</userinput></screen>
+
+    <para os="h">Install only the programs into the target:</para>
+
+<screen os="i"><userinput>make DESTDIR=${CLFS}/targetfs install-strip-progs-recursive</userinput></screen>
+
+    <para>Sadly, e2fsprogs will install man and info pages and getting it to not do this is
+      not simple.  Optionally, remove the man pages:</para>
+
+<screen><userinput>rm -rf ${CLFS}/targetfs/usr/share/{info,man}</userinput></screen>
 
   </sect2>
 
