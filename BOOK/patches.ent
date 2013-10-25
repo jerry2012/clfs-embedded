@@ -24,4 +24,8 @@
 <!ENTITY iana-etc-update-patch-md5 "b8e60c1322599c731734585d7af34945">
 <!ENTITY iana-etc-update-patch-size "4 KB">
 
+<!ENTITY netplug-patch "netplug-&netplug-version;-fixes-1.patch">
+<!ENTITY netplug-patch-md5 "">
+<!ENTITY netplug-patch-size "1 KB">
+
 <!-- Beyond patches -->
