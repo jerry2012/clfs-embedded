@@ -28,7 +28,7 @@
   <sect2 role="installation">
     <title>Installation of E2fsprogs</title>
 
-  <para os="aa">In order to work with musl-libc, e2fsprogs needs to be patched:</para>
+  <para os="aa">In order to work with musl, e2fsprogs needs to be patched:</para>
 
 <screen os="ab"><userinput>patch -Np1 -i ../&e2fsprogs-musl-patch;</userinput></screen>
 

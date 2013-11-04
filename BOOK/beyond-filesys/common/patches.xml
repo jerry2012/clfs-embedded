@@ -19,7 +19,7 @@
   <variablelist role="patches">
 
     <varlistentry>
-      <term>E2fsprogs musl-libc Patch - <token>&e2fsprogs-musl-patch-size;</token>:</term>
+      <term>E2fsprogs musl Patch - <token>&e2fsprogs-musl-patch-size;</token>:</term>
       <listitem>
         <para>Download: <ulink
         url="&patches-root;&e2fsprogs-musl-patch;"/></para>
